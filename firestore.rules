@@ -1,0 +1,37 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Global helper methods
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isSignedIn() && (
+        (request.auth.token.email != null && (
+          request.auth.token.email == 'kinetickali06@gmail.com' ||
+          request.auth.token.email == 'krishnavkashyap3@gmail.com'
+        )) ||
+        request.auth.uid == 'fIeS9nIK0ZMHvwK1wrUL0XdZqTd2'
+      );
+    }
+
+    // Rules for Student Documents
+    match /students/{studentId} {
+      allow read, write: if isSignedIn() && studentId == request.auth.uid;
+    }
+
+    // Rules for Question Papers
+    match /question_papers/{paperId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Rules for Departments Customization & Gallery
+    match /departments/{deptId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "entities": {
+    "student": {
+      "title": "Student",
+      "description": "Student portal registered profile info.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Full name of the student"
+        },
+        "email": {
+          "type": "string",
+          "description": "Email address of the student"
+        },
+        "rollNumber": {
+          "type": "string",
+          "description": "Roll number identifier"
+        },
+        "semester": {
+          "type": "string",
+          "description": "Current semester"
+        },
+        "departmentId": {
+          "type": "string",
+          "description": "Selected science department major id"
+        }
+      },
+      "required": [
+        "name",
+        "email",
+        "rollNumber",
+        "semester",
+        "departmentId"
+      ]
+    }
+  },
+  "firestore": {
+    "/students/{studentId}": {
+      "schema": "student",
+      "description": "Map containing registered student attributes mapped to their Firebase auth uid keys."
+    }
+  }
+}

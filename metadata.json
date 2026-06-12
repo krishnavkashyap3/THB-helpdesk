@@ -1,0 +1,6 @@
+{
+  "name": "THB College - Science Department",
+  "description": "Official website of the Science Department of Tyagbir Hem Boruah College featuring study materials, previous years' questions, departments info, and an interactive student portal.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
