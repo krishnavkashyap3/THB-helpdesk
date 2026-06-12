@@ -9,7 +9,7 @@ import { getFirestore, doc, getDocFromServer } from "firebase/firestore";
 
 // User provided Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCQVxtkrA1znzxcr_Ca8807RbQ2pRajqFc",
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: "thb-college.firebaseapp.com",
   projectId: "thb-college",
   storageBucket: "thb-college.firebasestorage.app",
